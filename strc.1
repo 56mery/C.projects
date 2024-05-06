@@ -1,0 +1,60 @@
+//en yaslı kişiyi adı en uzun kisiyi döndursun iki fonksiyon ayrı ayrı yap
+
+struct ogrenci{
+  char ad[20];
+  char soyad[20];
+  int yas;
+};
+
+int enUzunİsim(struct ogrenci ogr[5]){
+    int i=0,max;
+    
+    max=strlen(ogr[i].ad);
+    
+    for(i=0; i<5; i++){
+        if(max<strlen(ogr[i].ad)){
+            max=ogr[i].ad;
+        }
+    }
+    return max;
+}
+
+int enYasli(struct ogrenci ogr[5]){
+     int i=0,max;
+    max=ogr[i].yas;
+    
+    for(i=0; i<5; i++){
+        if(max<ogr[i].yas){
+            max=ogr[i].yas;
+        }
+    }
+    
+    return max;
+}
+
+
+int main() {
+    int i;
+    int isim;
+    int yasli;
+    
+    struct ogrenci ogr[5];
+    
+    for(i=0; i<5; i++){
+   printf("adinizi giriniz:");
+   scanf("%s" ,ogr[i].ad);
+   printf("soyadinizi giriniz:");
+   scanf("%s" ,ogr[i].soyad);
+   printf("yasinizi giriniz:");
+   scanf("%d" ,&ogr[i].yas);
+    }
+    
+    isim=enUzunİsim(ogr);
+    yasli=enYasli(ogr);
+    
+    printf("en uzun isime sahip kisi %d karakterli" ,isim);
+    printf("en yasli kisi %d yasinda" ,yasli);
+    
+    
+  return 0;
+}
